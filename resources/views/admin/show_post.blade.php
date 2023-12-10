@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    @include('admin.admincss')
    <style>
       .post_title
@@ -63,7 +64,10 @@
                 <td><img class="img_deg" src="postimage/{{$post->image}}" alt=""></td>
                 <td>
                     <a class="btn btn-success" href="">Update</a>
-                    <a class="btn btn-danger" onclick="return confirm('Are you confirm to delete this?')" href="{{url('delete_post', $post->id)}}">Delete</a>
+                    <a class="btn btn-danger" onclick="confirmation(event)" href="{{url('delete_post', $post->id)}}">Delete</a>
+                    {{--confirmation code paste on a tag--
+                         onclick="return confirm('Are you confirm to delete this?')"
+                    --}}
                 </td>
 
 
@@ -72,5 +76,27 @@
         </table>
       </div>
       @include('admin.footer')
+      <script type="text/javascript">
+        function confirmation(ev)
+        {
+            ev.preventDefault();
+            var urlToRedirect=ev.currentTarget.getAttribute('href');
+            console.log(urlToRedirect);
+            sweetAlert({
+                title       : "Are you confirm to delete this?",
+                text        : "You won't able to revert this",
+                icon        : "warning",
+                buttons      : true,
+                dangerMode  : true,
+            })
+            .then((willCancel)=>
+            {
+                if(willCancel)
+                {
+                    window.location.href=urlToRedirect;
+                }
+            });
+        }
+      </script>
   </body>
 </html>
