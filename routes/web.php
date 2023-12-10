@@ -35,3 +35,4 @@ require __DIR__.'/auth.php';
 Route::get('/post_page', [adminController::class, 'post_page']);
 Route::post('/add_post', [adminController::class, 'add_post']);
 Route::get('/show_post', [adminController::class, 'show_post']);
+Route::get('/delete_post/{id}', [adminController::class, 'delete_post']);

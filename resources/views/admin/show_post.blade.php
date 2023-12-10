@@ -36,6 +36,12 @@
      @include('admin.sidebar')
       <!-- Sidebar Navigation end-->
       <div class="page-content">
+        @if(session()->has('message'))
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" area-hidden="true">X</button>
+        {{ session()->get('message') }}
+        </div>
+        @endif
         <h1 class="post_title text-center">All Post</h1>
         <table class="table_deg">
             <tr class="th_deg">
@@ -45,6 +51,7 @@
                 <th>Post Status</th>
                 <th>Usertype</th>
                 <th>Image</th>
+                <th>Action</th>
             </tr>
             @foreach($post as $post)
             <tr>
@@ -54,6 +61,10 @@
                 <td>{{$post->post_status}}</td>
                 <td>{{$post->usertype}}</td>
                 <td><img class="img_deg" src="postimage/{{$post->image}}" alt=""></td>
+                <td>
+                    <a class="btn btn-success" href="">Update</a>
+                    <a class="btn btn-danger" onclick="return confirm('Are you confirm to delete this?')" href="{{url('delete_post', $post->id)}}">Delete</a>
+                </td>
 
 
             </tr>
