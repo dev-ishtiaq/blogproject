@@ -63,7 +63,7 @@
                 <td>{{$post->usertype}}</td>
                 <td><img class="img_deg" src="postimage/{{$post->image}}" alt=""></td>
                 <td>
-                    <a class="btn btn-success" href="">Update</a>
+                    <a class="btn btn-success" href="{{url('edit_post', $post->id)}}">Edit</a>
                     <a class="btn btn-danger" onclick="confirmation(event)" href="{{url('delete_post', $post->id)}}">Delete</a>
                     {{--confirmation code paste on a tag--
                          onclick="return confirm('Are you confirm to delete this?')"

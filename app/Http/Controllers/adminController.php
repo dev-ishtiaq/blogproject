@@ -45,15 +45,24 @@ class adminController extends Controller
         $post->save();
         return redirect()->back()->with('message','Post Submitted successfully!');
     }
+    
     public function show_post()
     {
         $post = Post::all();
         return view('admin.show_post', compact('post'));
     }
+
     public function delete_post($id)
     {
         $post = Post::find($id);
         $post->delete();
         return redirect()->back()->with('message', 'Post deleted successfully!');
+    }
+
+    public function edit_post($id)
+    {
+        $post = Post::find($id);
+        $post->edit();
+        return redirect()->back()->with('message', 'Post updated successfully!');
     }
 }
