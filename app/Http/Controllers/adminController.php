@@ -45,7 +45,7 @@ class adminController extends Controller
         $post->save();
         return redirect()->back()->with('message','Post Submitted successfully!');
     }
-    
+
     public function show_post()
     {
         $post = Post::all();
@@ -59,10 +59,30 @@ class adminController extends Controller
         return redirect()->back()->with('message', 'Post deleted successfully!');
     }
 
-    public function edit_post($id)
+    public function edit_page($id)
     {
         $post = Post::find($id);
-        $post->edit();
+        return view('admin.edit_page', compact('post'));
+
+        // return redirect()->back()->with('message', 'Post updated successfully!');
+    }
+
+    public function update_post(Request $request, $id)
+    {
+        $data               =   Post::find($id);
+        $data->title        =   $request->title;
+        $data->description  =   $request->description;
+        $image              =   $request->image;
+
+        if($image)
+        {
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+            $request->image->move('postimage', $imagename);
+            $data->image = $imagename;
+        }
+        $data->save();
+
         return redirect()->back()->with('message', 'Post updated successfully!');
     }
+
 }
