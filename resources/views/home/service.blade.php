@@ -8,9 +8,9 @@
             @foreach ($post as $post)
 
              <div class="col-md-4">
-                <div><img src="images/img-1.png" class="services_img"></div>
-                <h4>Lorem, ipsum dolor sit amet consectetur </h4>
-                <p>post by <b>-Admin</b></p>
+                <div><img src="postimage/{{$post->image}}" class="services_img"></div>
+                <h4>{{$post->title}}</h4>
+                <p>post by <b>{{$post->name}}</b></p>
 
                 <div class="btn_main"><a href="#">Read more</a></div>
              </div>

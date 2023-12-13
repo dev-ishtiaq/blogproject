@@ -13,11 +13,12 @@ class HomeController extends Controller
    {
         if(Auth::id())
         {
+            $post = Post::all();
             $usertype=Auth()->user()->usertype;
 
             if($usertype=='user')
             {
-                return view('home.homepage');
+                return view('home.homepage', compact('post'));
             }
 
             else if($usertype=='admin')
