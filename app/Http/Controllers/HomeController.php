@@ -38,4 +38,10 @@ class HomeController extends Controller
         return view('home.homepage', compact('post'));
    }
 
+   public function post_description($id)
+   {
+    $post = Post::find($id);
+    return view('home.post_description', compact('post'));
+   }
+
 }

@@ -17,11 +17,12 @@ Use App\Http\Controllers\adminController;
 
 Route::get('/', [HomeController::class, 'homepage']);
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/home',[HomeController::class, 'index'])->middleware('auth')->name('home');
+Route::get('/post_description/{id}', [HomeController::class, 'post_description']);
 
 
 Route::middleware('auth')->group(function () {
