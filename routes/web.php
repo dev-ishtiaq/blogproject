@@ -39,3 +39,4 @@ Route::get('/show_post', [adminController::class, 'show_post']);
 Route::get('/delete_post/{id}', [adminController::class, 'delete_post']);
 Route::get('/edit_page/{id}', [adminController::class, 'edit_page']);
 Route::post('/update_post/{id}', [adminController::class, 'update_post']);
+Route::get('/create_post', [HomeController::class, 'create_post']);

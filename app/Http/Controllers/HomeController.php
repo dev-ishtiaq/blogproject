@@ -43,5 +43,9 @@ class HomeController extends Controller
     $post = Post::find($id);
     return view('home.post_description', compact('post'));
    }
+   public function create_post()
+   {
+    return view('home.create_post');
+   }
 
 }
