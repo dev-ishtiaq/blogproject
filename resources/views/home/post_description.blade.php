@@ -4,12 +4,16 @@
    <head>
     @include('home.link')
     <style>
-        .services_img
+        .des_img
         {
             height: 400px;
             width: 400px;
-            border: 2px solid #ff0;
-            border-radius: 20px;
+            padding: 20px;
+            margin: auto;
+            left: 0;
+            position: relative;
+            display: inline-block;
+
         }
     </style>
     </head>
@@ -20,12 +24,12 @@
          <!-- banner section start -->
       </div>
       <!-- header section end -->
-      <div class="col-md-4">
-        <div><img src="postimage/{{$post->image}}" class="services_img"></div>
-        <h4>{{$post->title}}</h4>
+      <div style="text-align: center; margin: auto;" class="col-md-12">
+        <div><img src="postimage/{{$post->image}}" class="des_img"></div>
+        <h2><b>{{$post->title}}</b></h2>
+        <h4>{{$post->description}}</h4>
         <p>post by <b>{{$post->name}}</b></p>
 
-        <div class="btn_main"><a href="{{url('/post_description', $post->id)}}">Read more</a></div>
      </div>
        <!-- footer section start -->
      @include('home.footer')
