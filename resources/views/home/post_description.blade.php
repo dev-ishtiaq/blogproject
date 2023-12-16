@@ -13,6 +13,8 @@
             left: 0;
             position: relative;
             display: inline-block;
+            border: 2px solid #000;
+            border-radius: 10px;
 
         }
     </style>
