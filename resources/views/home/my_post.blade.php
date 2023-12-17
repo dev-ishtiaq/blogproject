@@ -2,31 +2,48 @@
 <html lang="en">
    <head>
     @include('home.link')
+    <style type="text/css">
+        .post_deg
+        {
+            
+            
+           
+            background: #000;
+        }
+        .services_img
+        {
+            height: 300px;
+            width: 300px;
+            padding: 20px;
+            display: block;
+        }
+        .title-deg
+        {
+            color: #fff;
+            font-size: 18px;
+            
+        }
+    </style>
     </head>
    <body>
       <!-- header section start -->
       <div class="header_section">
         @include('home.header')
-         <!-- banner section start -->
-        @include('home.banner')
-         <!-- banner section end -->
+       
       </div>
-      <!-- header section end -->
-      <!-- services section start -->
-     @include('home.service')
-      <!-- services section end -->
-      <!-- about section start -->
-     @include('home.about')
-      <!-- about section end -->
-      <!-- blog section start -->
-      @include('home.blog')
-      <!-- blog section end -->
-      <!-- client section start -->
-      @include('home.testimonial')
-      <!-- client section end -->
-      <!-- choose section start -->
-      @include('home.faq')
-      <!-- choose section end -->
+      
+      
+            @foreach ($data as $data)
+            <div class="col-md-4 d-inline-flex p-2 post_deg">
+                <div><img src="postimage/{{$data->image}}" class="services_img"></div>
+                <h4 class="title-deg fs-5">{{$data->title}}</h4>
+                <p class="color-white">data by <b>{{$data->name}}</b></p>
+
+                <div class="btn_main"><a href="{{url('/data_description', $data->id)}}">Read more</a></div>
+            </div>
+        
+       
+     @endforeach
       <!-- footer section start -->
      @include('home.footer')
       <!-- footer section end -->

@@ -8,7 +8,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
              <ul class="navbar-nav">
                 <li class="nav-item">
-                   <a class="nav-link" href="index.html">Home</a>
+                   <a class="nav-link" href="{{url('/')}}l">Home</a>
                 </li>
                 <li class="nav-item">
                    <a class="nav-link" href="about.html">About</a>
@@ -27,18 +27,19 @@
        </nav>
     </div>
     <div class="container-fluid">
-       <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+       <div class="logo"><a href="{{url('/')}}"><img src="images/logo.png"></a></div>
        <div class="menu_main">
           <ul>
-             <li class="active"><a href="index.html">Home</a></li>
+             <li class="active"><a href="{{url('/')}}">Home</a></li>
              <li><a href="about.html">About</a></li>
              <li><a href="blog.html">Blog</a></li>
 
              @if (Route::has('login'))
              @auth
 
-             <li><a href="{{route('home')}}">home</a></li>
+             <li><a href="{{url('home')}}">home</a></li>
              <li><a href="{{url('create_post')}}">Create post</a></li>
+             <li><a href="{{url('my_post')}}">My post</a></li>
              <li>
                 <x-app-layout>
 
