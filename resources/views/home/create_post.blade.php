@@ -26,6 +26,7 @@
     </style>
     </head>
    <body>
+    @include('sweetalert::alert')
       <!-- header section start -->
       <div class="header_section">
         @include('home.header')
