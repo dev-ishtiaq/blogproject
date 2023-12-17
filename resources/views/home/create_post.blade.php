@@ -8,26 +8,28 @@
             font-size: 30px;
             font-weight: bold;
             padding: 30px;
-            color: #000000;
+            color: #1a1919;
         }
         .div_center
         {
             text-align:center;
             padding: 20px;
+
         }
         label
         {
             display: inline-block;
-
+            color: #ffffff;
              margin-left: auto;
         }
+
     </style>
     </head>
    <body>
       <!-- header section start -->
       <div class="header_section">
         @include('home.header')
-          </div>
+      </div>
       <!-- header section end -->
       @if(session()->has('message'))
       <div class="alert alert-success">
@@ -35,28 +37,28 @@
       {{session()->get('message')}}
       </div>
       @endif
-            <div>
-              <h1 class="post_title text-center">Add Post</h1>
-              <form action="{{url('add_post')}}" method="POST" enctype="multipart/form-data">
-                  @csrf
+      <div class="page-content">
+            <h1 class="post_title text-center">Add Post</h1>
+            <form action="{{url('user_post')}}" method="POST" enctype="multipart/form-data">
+                @csrf
 
-                  <div class="div_center">
-                      <label>post title</label>
-                      <input type="text" name="title">
-                  </div>
-                  <div class="div_center">
-                      <label>post description</label>
-                      <textarea name="description" cols="30" rows="3"></textarea>
-                  </div>
-                  <div class="div_center">
-                      <label>Add image</label>
-                      <input type="file" name="image">
-                  </div>
-                  <div class="div_center">
-                      <input class="btn btn-primary" type="submit">
-                  </div>
-              </form>
-            </div>
+                <div class="div_center">
+                    <label>post title</label>
+                    <input type="text" name="title">
+                </div>
+                <div class="div_center">
+                    <label>post description</label>
+                    <textarea name="description" cols="30" rows="3"></textarea>
+                </div>
+                <div class="div_center">
+                    <label>Add image</label>
+                    <input type="file" name="image">
+                </div>
+                <div class="div_center">
+                    <input style="color: #000; border: 1px solid #000;" class="btn btn-outline-success" type="submit">
+                </div>
+            </form>
+      </div>
       <!-- footer section start -->
      @include('home.footer')
       <!-- footer section end -->
@@ -66,6 +68,7 @@
             <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://html.design">Free html  Templates</a></p>
          </div>
       </div>
+
       <!-- copyright section end -->
       <!-- Javascript files-->
       <script src="js/jquery.min.js"></script>
