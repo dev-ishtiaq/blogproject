@@ -3,47 +3,73 @@
    <head>
     @include('home.link')
     <style type="text/css">
-        .post_deg
+
+
+        .title-deg
         {
-            
-            
-           
-            background: #000;
+            color: #000;
+            font-size: 20px;
+            font-weight: bold;
+            padding-top: 20px;
+            text-align: center;
+
         }
-        .services_img
+        .heading-deg
+        {
+            font-size: 30px;
+            font-weight: 700;
+            padding-top: 20px;
+            text-align: center;
+        }
+        .post_img
         {
             height: 300px;
             width: 300px;
-            padding: 20px;
-            display: block;
+            justify-content: center;
+            align-items: center;
+            margin:auto;
         }
-        .title-deg
-        {
-            color: #fff;
-            font-size: 18px;
-            
-        }
+       .container
+       {
+
+       }
+       .post_d
+       {
+        border-radius: 10px;
+        padding: 30px;
+        width: 400px;
+        height: 25%;
+        background: #d3d3d3;
+        justify-content: space-between;
+        margin: 20px;
+        text-align: center;
+
+       }
     </style>
     </head>
    <body>
       <!-- header section start -->
       <div class="header_section">
         @include('home.header')
-       
-      </div>
-      
-      
-            @foreach ($data as $data)
-            <div class="col-md-4 d-inline-flex p-2 post_deg">
-                <div><img src="postimage/{{$data->image}}" class="services_img"></div>
-                <h4 class="title-deg fs-5">{{$data->title}}</h4>
-                <p class="color-white">data by <b>{{$data->name}}</b></p>
 
-                <div class="btn_main"><a href="{{url('/data_description', $data->id)}}">Read more</a></div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+            <h1 class="heading-deg">My Post</h1>
+            @foreach ($data as $data)
+            <div class="col-lg-4 post_d">
+                <img src="postimage/{{$data->image}}" class="post_img">
+                <h4 class="title-deg">{{$data->title}}</h4>
+                <p>post by <b>{{$data->name}}</b></p>
+
+                <div class="btn_main"><a href="{{url('/post_description', $data->id)}}">Read more</a></div>
+             </div>
+             @endforeach
             </div>
-        
-       
-     @endforeach
+        </div>
+
+
       <!-- footer section start -->
      @include('home.footer')
       <!-- footer section end -->
