@@ -3,9 +3,7 @@
    <head>
     @include('home.link')
     <style type="text/css">
-
-
-        .title-deg
+    .title-deg
         {
             color: #000;
             font-size: 20px;
@@ -48,11 +46,17 @@
     </style>
     </head>
    <body>
+    @if(session()->has('message'))
+      <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+      </div>
+     @endif
       <!-- header section start -->
       <div class="header_section">
         @include('home.header')
 
       </div>
+
 
       <div class="container">
         <div class="row">
@@ -63,7 +67,10 @@
                 <h4 class="title-deg">{{$data->title}}</h4>
                 <p>post by <b>{{$data->name}}</b></p>
 
-                <div class="btn_main"><a href="{{url('/post_description', $data->id)}}">Read more</a></div>
+                <div>
+                    <a class="btn btn-primary" href="{{url('/post_description', $data->id)}}">Read more</a>
+                    <a onclick="return confirm('are you sure to delete this?')" class="btn btn-danger" href="{{url('delete_my_post', $data->id)}}">Delete</a>
+                </div>
              </div>
              @endforeach
             </div>
