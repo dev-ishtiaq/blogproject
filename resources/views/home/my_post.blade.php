@@ -27,10 +27,7 @@
             align-items: center;
             margin:auto;
         }
-       .container
-       {
 
-       }
        .post_d
        {
         border-radius: 10px;
@@ -46,29 +43,33 @@
     </style>
     </head>
    <body>
-    @if(session()->has('message'))
-      <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
-      </div>
-     @endif
       <!-- header section start -->
       <div class="header_section">
         @include('home.header')
-
       </div>
+
 
 
       <div class="container">
         <div class="row">
             <h1 class="heading-deg">My Post</h1>
+
+        @if(session()->has('message'))
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" area-hidden="true">X</button>
+            {{ session()->get('message') }}
+            </div>
+        @endif
+
             @foreach ($data as $data)
             <div class="col-lg-4 post_d">
                 <img src="postimage/{{$data->image}}" class="post_img">
                 <h4 class="title-deg">{{$data->title}}</h4>
+                <p>post by <b>{{$data->description}}</b></p>
                 <p>post by <b>{{$data->name}}</b></p>
 
                 <div>
-                    <a class="btn btn-primary" href="{{url('/post_description', $data->id)}}">Read more</a>
+                    <a class="btn btn-primary" href="{{url('post_update_page', $data->id)}}">Update</a>
                     <a onclick="return confirm('are you sure to delete this?')" class="btn btn-danger" href="{{url('delete_my_post', $data->id)}}">Delete</a>
                 </div>
              </div>
