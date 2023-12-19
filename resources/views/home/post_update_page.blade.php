@@ -27,6 +27,19 @@
             width: 100px;
             margin: auto;
         }
+        .sb{
+            color: #FFF;
+            background-color: #0a64f4;
+            padding: 10px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .sb:hover
+        {
+            border: 1px solid #0a64f4;
+            color: #0a64f4;
+            background: transparent;
+        }
     </style>
     </head>
    <body>
@@ -66,7 +79,7 @@
                 <input type="file" name="image">
             </div>
             <div class="div_center">
-                <input class="btn btn-primary" type="submit">
+                <button class="sb" type="submit" value="Update">Update</button>
             </div>
         </form>
       <!-- footer section start -->
