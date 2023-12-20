@@ -38,7 +38,7 @@
       <!-- Sidebar Navigation end-->
       <div class="page-content">
         @if(session()->has('message'))
-        <div class="alert alert-danger">
+        <div class="alert alert-info">
             <button type="button" class="close" data-dismiss="alert" area-hidden="true">X</button>
         {{ session()->get('message') }}
         </div>
@@ -65,6 +65,9 @@
                 <td>
                     <a class="btn btn-success" href="{{url('edit_page', $post->id)}}">Edit</a>
                     <a class="btn btn-danger" onclick="confirmation(event)" href="{{url('delete_post', $post->id)}}">Delete</a>
+                    <a class="btn btn-info" href="{{url('accept_post', $post->id)}}">Accept</a>
+                    <a class="btn btn-warning text-white" onclick="reject_confirmation(event)" href="{{url('reject_post', $post->id)}}">Reject</a>
+
                     {{--confirmation code paste on a tag--
                          onclick="return confirm('Are you confirm to delete this?')"
                     --}}
@@ -84,6 +87,26 @@
             console.log(urlToRedirect);
             sweetAlert({
                 title       : "Are you confirm to delete this?",
+                text        : "You won't able to revert this",
+                icon        : "warning",
+                buttons      : true,
+                dangerMode  : true,
+            })
+            .then((willCancel)=>
+            {
+                if(willCancel)
+                {
+                    window.location.href=urlToRedirect;
+                }
+            });
+        }
+        function reject_confirmation(reject)
+        {
+            reject.preventDefault();
+            var urlToRedirect=reject.currentTarget.getAttribute('href');
+            console.log(urlToRedirect);
+            sweetAlert({
+                title       : "Are you confirm to reject this?",
                 text        : "You won't able to revert this",
                 icon        : "warning",
                 buttons      : true,
