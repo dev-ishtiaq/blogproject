@@ -135,7 +135,7 @@
               <div class="avatar"><img src="img/avatar-1.jpg" alt="..." class="img-fluid">
                 <div class="order dashbg-2">1st</div>
               </div><a href="#" class="user-title">
-                <h3 class="h5">Richard Nevoreski</h3><span>@richardnevo</span></a>
+                <h3 class="h5">Blog Admin</h3><span>@richardnevo</span></a>
               <div class="contributions">950 Contributions</div>
               <div class="details d-flex">
                 <div class="item"><i class="icon-info"></i><strong>150</strong></div>
@@ -149,7 +149,7 @@
               <div class="avatar"><img src="img/avatar-4.jpg" alt="..." class="img-fluid">
                 <div class="order dashbg-1">2nd</div>
               </div><a href="#" class="user-title">
-                <h3 class="h5">Samuel Watson</h3><span>@samwatson</span></a>
+                <h3 class="h5">Ishtiaq Ahmed</h3><span>@samwatson</span></a>
               <div class="contributions">772 Contributions</div>
               <div class="details d-flex">
                 <div class="item"><i class="icon-info"></i><strong>80</strong></div>
