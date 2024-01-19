@@ -46,6 +46,7 @@
         <h1 class="post_title text-center">All Post</h1>
         <table class="table_deg">
             <tr class="th_deg">
+            
                 <th>Post Title</th>
                 <th>Description</th>
                 <th>Post By</th>
